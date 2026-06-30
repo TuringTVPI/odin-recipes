@@ -156,3 +156,7 @@ section.recipes a {
   font-style:     normal;
   text-transform: lowercase;
 }
+
+.recipe__hero ul, .recipe__hero ol {
+  list-style-position: inside;
+}
