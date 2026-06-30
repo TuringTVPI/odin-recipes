@@ -1,3 +1,4 @@
+[![Live Demo](https://img.shields.io/badge/Live-Preview-success)](https://turingtvpi.github.io/odin-recipes/)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css&logoColor=white)
 ![WebStorm](https://img.shields.io/badge/WebStorm-000000?logo=webstorm)
@@ -8,6 +9,8 @@
 A small, multi-page website built to practise the fundamentals of HTML and CSS.
 
 ![Odin Recipes Screenshot](./odin-recipes_screenshot.png)
+
+#### [Live Preview](https://turingtvpi.github.io/odin-recipes/)
 
 ## Acknowledgements
 
