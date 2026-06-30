@@ -115,8 +115,10 @@ section.recipes a {
   font-size:      28px;
   font-weight:    600;
   font-style:     normal;
+  user-select:    none;
   transition:     all .2s ease;
   text-transform: lowercase;
+  color:          var(--white);
 }
 
 .recipe__name {
@@ -172,7 +174,7 @@ section.recipes a {
 
 .recipe__hero img {
   width:           100%;
-  aspect-ratio:    16 / 9;
+  aspect-ratio:    3 / 2;
   object-fit:      cover;
   object-position: center;
 }
