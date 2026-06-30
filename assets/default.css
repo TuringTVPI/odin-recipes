@@ -1,3 +1,6 @@
+@import url("https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@600&family=Cormorant+Upright&display=swap');
+
 :root {
   --black:        #1D1E22;
   --light-black:  #2A2D34;
@@ -21,7 +24,10 @@ html {
 }
 
 body {
-  font-size:      18px;
+  font-family:    "Cormorant Upright", serif;
+  font-size:      20px;
+  font-weight:    400;
+  font-style:     normal;
   display:        flex;
   flex-direction: column;
   margin:         0 auto;
@@ -34,12 +40,18 @@ main {
   display:          flex;
   flex-direction:   column;
   padding:          var(--padding);
+  border-radius:    var(--padding-half);
   background-color: var(--light-black);
   gap:              var(--padding);
+  corner-shape:     bevel;
 }
 
 h1 {
-  color: var(--primary);
+  font-family:    "Cormorant Unicase", serif;
+  font-weight:    600;
+  font-style:     normal;
+  text-transform: lowercase;
+  color:          var(--primary);
 }
 
 h2 {
@@ -47,7 +59,7 @@ h2 {
 }
 
 p {
-  line-height: 1.5;
+  line-height: 2;
 }
 
 section.recipes {
@@ -67,15 +79,25 @@ section.recipes a {
   overflow:        hidden;
   align-items:     center;
   flex-direction:  column;
-  justify-content: space-between;
+  justify-content: center;
   padding:         calc(var(--padding) / 2);
   border:          2px solid transparent;
+  border-radius:   calc(var(--padding-half) / 2);
   aspect-ratio:    1/1;
+  corner-shape:    bevel;
 }
 
 .recipe:hover {
   border-width: 2px;
   border-color: var(--primary);
+}
+
+.recipe__name {
+  font-family:    "Cormorant Unicase", serif;
+  font-size:      28px;
+  font-weight:    600;
+  font-style:     normal;
+  text-transform: lowercase;
 }
 
 .recipe__name,
