@@ -98,11 +98,11 @@ section.recipes a {
 }
 
 .recipe:hover {
-  transform:    scale(1.05);
-  box-shadow:   var(--primary) 0 0 16px;
+  transform:  scale(1.05);
+  box-shadow: var(--primary) 0 0 16px;
 }
 
-.recipe:hover::before{
+.recipe:hover::before {
   background-color: transparent;
 }
 
@@ -111,6 +111,7 @@ section.recipes a {
   font-size:      28px;
   font-weight:    600;
   font-style:     normal;
+  transition:     all .2s ease;
   text-transform: lowercase;
 }
 
@@ -121,6 +122,10 @@ section.recipes a {
   z-index:     2;
   text-align:  center;
   text-shadow: 2px 2px 5px #000000;
+}
+
+.recipe:hover .recipe__name {
+  opacity: 0;
 }
 
 .recipe img {
