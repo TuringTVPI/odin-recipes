@@ -7,6 +7,8 @@
 
 A small, multi-page website built to practise the fundamentals of HTML and CSS.
 
+![Odin Recipes Screenshot](./odin-recipes_screenshot.png)
+
 ## Acknowledgements
 
 Created as part of **[The Odin Project Foundations](https://www.theodinproject.com/paths/foundations/courses/foundations)** course.
