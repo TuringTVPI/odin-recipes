@@ -9,7 +9,7 @@
   --white:        #F4F1EA;
 
   --max-width:    720px;
-  --padding:      32px;
+  --padding:      24px;
   --padding-half: calc(var(--padding) / 2);
 }
 
@@ -50,15 +50,22 @@ main,
   gap:            var(--padding);
 }
 
-h1 {
-  font-family:    "Cormorant Unicase", serif;
-  font-weight:    600;
-  font-style:     normal;
-  text-transform: lowercase;
-  color:          var(--primary);
+h1, #site__title a {
+  font-family:     "Cormorant Unicase", serif;
+  font-size:       3rem;
+  font-weight:     600;
+  font-style:      normal;
+  text-decoration: none;
+  text-transform:  lowercase;
+  color:           var(--primary);
 }
 
-h2 {
+#site__title a:hover {
+  text-decoration: underline;
+  color:           var(--white);
+}
+
+h2, #site__subtitle {
   color: var(--white);
 }
 
@@ -68,7 +75,7 @@ p {
 
 section.recipes {
   display:               grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap:                   var(--padding-half);
 }
 
@@ -85,7 +92,6 @@ section.recipes a {
   flex-direction:  column;
   justify-content: center;
   padding:         calc(var(--padding) / 2);
-  transition:      all .2s ease;
   border-radius:   calc(var(--padding-half) / 2);
   aspect-ratio:    1/1;
   corner-shape:    bevel;
@@ -95,15 +101,15 @@ section.recipes a {
   position:         absolute;
   z-index:          1;
   content:          "";
-  transition:       all .2s ease;
   opacity:          0.5;
   background-color: var(--black);
   inset:            0;
 }
 
 .recipe__card:hover {
+  z-index:    3;
   transform:  scale(1.05);
-  box-shadow: var(--primary) 0 0 16px;
+  box-shadow: var(--primary) 0 0 1rem;
 }
 
 .recipe__card:hover::before {
@@ -112,21 +118,17 @@ section.recipes a {
 
 .recipe__name {
   font-family:    "Cormorant Unicase", serif;
-  font-size:      28px;
+  font-size:      2rem;
   font-weight:    600;
   font-style:     normal;
+  line-height:    1.25;
+  position:       relative;
+  z-index:        2;
   user-select:    none;
-  transition:     all .2s ease;
+  text-align:     center;
   text-transform: lowercase;
   color:          var(--white);
-}
-
-.recipe__name {
-  line-height: 1.25;
-  position:    relative;
-  z-index:     2;
-  text-align:  center;
-  text-shadow: 2px 2px 5px #000000;
+  text-shadow:    2px 2px 5px #000000;
 }
 
 .recipe__card:hover .recipe__name {
@@ -147,29 +149,50 @@ section.recipes a {
 }
 
 .recipe__hero h1 {
-  font-size:       32px;
-  display:         flex;
-  align-items:     flex-end;
-  flex-direction:  row;
-  justify-content: space-between;
+  font-size:                 2.5rem;
+  display:                   flex;
+  align-items:               flex-start;
+  flex-direction:            column;
+  justify-content:           space-between;
+  text-decoration:           underline;
+  text-decoration-style:     wavy;
+  text-decoration-thickness: .1rem;
+  text-decoration-color:     var(--white);
 }
 
-.recipe__hero a.breadcrumb {
-  font-size:       .75em;
+a.breadcrumb {
+  font-size:       1.5rem;
+  display:         flex;
+  align-items:     center;
+  align-self:      flex-start;
+  flex-direction:  row;
+  width:           fit-content;
   text-decoration: none;
   color:           var(--white);
 }
 
-.recipe__hero a:hover {
-  color: var(--secondary);
+a.breadcrumb:hover {
+  color: var(--primary);
 }
 
-.recipe__hero a.breadcrumb::before {
-  font-family: "Noto Sans Runic", sans-serif;
-  font-weight: 400;
-  font-style:  normal;
-  margin:      0 .5rem;
-  content:     "ᚳ";
+a.breadcrumb::before {
+  position:     relative;
+  top:          0.05em;
+  display:      inline-block;
+  margin-right: .25em;
+  width:        .75em;
+  height:       .75em;
+  content:      "";
+  animation:    breadcrumb-wiggle 2s ease-in-out infinite;
+  background:   bottom / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath fill='%23C89B3C' d='M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 544 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-434.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z'/%3E%3C/svg%3E");
+}
+
+a.breadcrumb:hover::before {
+  background: bottom / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath fill='%23A8B2BD' d='M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 544 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-434.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z'/%3E%3C/svg%3E");
+}
+
+.recipe__hero section {
+  text-align: justify;
 }
 
 .recipe__hero img {
@@ -179,13 +202,20 @@ section.recipes a {
   object-position: center;
 }
 
-.recipe__hero h2 {
+.recipe__hero h2, section h2, a.breadcrumb {
   font-family:    "Cormorant Unicase", serif;
-  font-size:      24px;
+  font-size:      1.5rem;
   font-weight:    600;
   font-style:     normal;
   margin-bottom:  .5em;
   text-transform: lowercase;
+}
+
+section h2 {
+  text-decoration:           underline;
+  text-decoration-style:     wavy;
+  text-decoration-thickness: .1rem;
+  text-decoration-color:     var(--primary);
 }
 
 .recipe__hero ul, .recipe__hero ol {
@@ -202,7 +232,7 @@ ul, ol {
 
 ul li, ol li {
   position:     relative;
-  padding-left: 1.5rem;
+  padding-left: 1.5em;
 }
 
 ol li {
@@ -230,4 +260,53 @@ ol li::before {
 
 ol li:not(:last-of-type) {
   margin-bottom: .5em;
+}
+
+footer {
+  display:         flex;
+  flex-direction:  row;
+  justify-content: space-between;
+}
+
+footer a, a[rel="noopener noreferrer"] {
+  color: var(--primary);
+}
+
+footer a:hover, a[rel="noopener noreferrer"]:hover {
+  text-decoration: none;
+}
+
+a[rel="noopener noreferrer"]:after {
+  position:    relative;
+  top:         -0.25em;
+  display:     inline-block;
+  margin-left: 0.25em;
+  width:       0.5em;
+  height:      0.5em;
+  content:     "";
+  background:  center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23C89B3C' d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0-201.4 201.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3 448 192c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 96C35.8 96 0 131.8 0 176L0 432c0 44.2 35.8 80 80 80l256 0c44.2 0 80-35.8 80-80l0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l80 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 96z'/%3E%3C/svg%3E");
+}
+
+.recipe__card,
+.recipe__card::before,
+.recipe__name,
+a.breadcrumb,
+#site__title a {
+  transition: all .25s ease-in-out;
+}
+
+@keyframes breadcrumb-wiggle {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-0.5em);
+  }
+}
+
+@media (min-width: 480px) {
+  section.recipes {
+    grid-template-columns: 1fr 1fr;
+  }
 }
