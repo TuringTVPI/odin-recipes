@@ -70,6 +70,7 @@ section.recipes a {
   justify-content: space-between;
   padding:         calc(var(--padding) / 2);
   border:          2px solid transparent;
+  aspect-ratio:    1/1;
 }
 
 .recipe:hover {
