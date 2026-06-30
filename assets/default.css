@@ -1,5 +1,5 @@
 @import url("https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css");
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@600&family=Cormorant+Upright&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@600&family=Cormorant+Upright&family=Noto+Sans+Runic&display=swap');
 
 :root {
   --black:        #1D1E22;
@@ -19,7 +19,7 @@
 }
 
 html {
-  color:            var(--white);
+  color:            var(--secondary);
   background-color: var(--black);
 }
 
@@ -59,11 +59,11 @@ h1 {
 }
 
 h2 {
-  color: var(--secondary);
+  color: var(--white);
 }
 
-p, ul, ol, li {
-  line-height: 2;
+p {
+  line-height: 1.5;
 }
 
 section.recipes {
@@ -119,9 +119,8 @@ section.recipes a {
   text-transform: lowercase;
 }
 
-.recipe__name,
-.recipe__description {
-  line-height: 1.2;
+.recipe__name {
+  line-height: 1.25;
   position:    relative;
   z-index:     2;
   text-align:  center;
@@ -146,7 +145,36 @@ section.recipes a {
 }
 
 .recipe__hero h1 {
-  font-size: 32px;
+  font-size:       32px;
+  display:         flex;
+  align-items:     flex-end;
+  flex-direction:  row;
+  justify-content: space-between;
+}
+
+.recipe__hero a.breadcrumb {
+  font-size:       .75em;
+  text-decoration: none;
+  color:           var(--white);
+}
+
+.recipe__hero a:hover {
+  color: var(--secondary);
+}
+
+.recipe__hero a.breadcrumb::before {
+  font-family: "Noto Sans Runic", sans-serif;
+  font-weight: 400;
+  font-style:  normal;
+  margin:      0 .5rem;
+  content:     "ᚳ";
+}
+
+.recipe__hero img {
+  width:           100%;
+  aspect-ratio:    16 / 9;
+  object-fit:      cover;
+  object-position: center;
 }
 
 .recipe__hero h2 {
@@ -154,9 +182,50 @@ section.recipes a {
   font-size:      24px;
   font-weight:    600;
   font-style:     normal;
+  margin-bottom:  .5em;
   text-transform: lowercase;
 }
 
 .recipe__hero ul, .recipe__hero ol {
-  list-style-position: inside;
+  line-height: 1.5;
+}
+
+.recipe__hero li:first-of-type {
+  margin-top: 1px;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+ul li, ol li {
+  position:     relative;
+  padding-left: 1.5rem;
+}
+
+ol li {
+  counter-increment: ritual;
+}
+
+ul li::before, ol li::before {
+  font-family: "Noto Sans Runic", sans-serif;
+  font-weight: 400;
+  font-style:  normal;
+  position:    absolute;
+  top:         0;
+  left:        0;
+}
+
+ul li::before {
+  content: "ᛟ";
+  color:   var(--primary);
+}
+
+ol li::before {
+  content: counter(ritual);
+  color:   var(--primary);
+}
+
+ol li:not(:last-of-type) {
+  margin-bottom: .5em;
 }
